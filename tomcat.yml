@@ -1,7 +1,13 @@
 - name: Tomcat deployment playbook
   hosts: web                
   become: yes               
-         
-  tasks:         
-  vars:
-    tomcat_ver: 9.0.30      
+    
+    tasks:
+        apt: "name={{ item }} state=present"
+        with_items:
+          - tomcat7
+          - tomcat7-admin
+    
+    - name: Ensure Tomcat 9 is started and enabled on boot.
+      service: name=tomcat9 state=started enabled=yes
+      
