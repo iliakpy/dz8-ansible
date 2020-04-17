@@ -15,4 +15,4 @@
 - name: Ensure maven package is present
   apt:
     name: maven clean package
-    command: mvn -f /home/boxfuse-sample-jawa-war-hello/pom.xml clean packagename: maven
+    command: mvn -f /home/boxfuse-sample-jawa-war-hello/pom.xml clean boxfuse: maven
