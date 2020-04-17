@@ -2,11 +2,11 @@
   hosts: web                
   become: yes               
     
-    tasks:
-        apt: "name={{ item }} state=present"
-        with_items:
-          - tomcat9
-          - tomcat9-admin
+  tasks:
+    apt: "name={{ item }} state=present"
+    with_items:
+      - tomcat9
+      - tomcat9-admin
     
-    - name: Ensure Tomcat 9 is started and enabled on boot.
-      service: name=tomcat9 state=started enabled=yes
+  - name: Ensure Tomcat 9 is started and enabled on boot.
+    service: name=tomcat9 state=started enabled=yes
