@@ -1,13 +1,18 @@
 ---
-    - name: install maven
-      hosts: web
-      become: yes
-      
-    - git:
-        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-        dest: /home/boxfuse
-      
+- git:
+  hosts: web
+  become: yes
+   
   tasks:
-        
-    - name: maven clean package
-        command: mvn -f /home/boxfuse-sample-jawa-war-hello/pom.xml clean package
+  copy:
+    repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+    dest: /home/boxfuse
+
+- name: install maven
+  hosts: web
+  become: yes
+
+- name: Ensure maven package is present
+  apt:
+    name: maven clean package
+    command: mvn -f /home/boxfuse-sample-jawa-war-hello/pom.xml clean packagename: maven
