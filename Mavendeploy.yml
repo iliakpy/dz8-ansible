@@ -2,13 +2,12 @@
     - name: install maven
       hosts: web
       become: yes
-    
-      tasks:
-      - name: Ensure maven package is present
-        apt:
-          name: pkg=maven state=latest update_cache=yes cache_valid_time=3600
-          state: present
       
-      - git:
-          repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.gitgit
-          dest: /home/hello
+    - git:
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        dest: /home/boxfuse
+      
+    tasks:
+        
+    - name: maven clean package
+        command: mvn -f /home/boxfuse-sample-jawa-war-hello/pom.xml clean package
