@@ -23,4 +23,5 @@
       repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
       dest: /home/boxfuse/
 
-  
+  - name: maven clean package
+    command: mvn -f "/home/boxfuse/pom.xml" clean package
