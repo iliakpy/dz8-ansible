@@ -16,12 +16,7 @@
     apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
     with_items:
     - maven
-
-  - name: Ensure tomcat service is started
-    service:
-      name: tomcat
-      state: started
-
+  
   - name: boxfuse
     become: yes
     git:
