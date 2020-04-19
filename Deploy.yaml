@@ -17,8 +17,15 @@
     with_items:
     - maven
 
+  - name: Ensure tomcat service is started
+    service:
+      name: tomcat
+      state: started
+
   - name: boxfuse
+    become: yes
     git:
       repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
-      dest: /home/
-    
+      dest: /home/boxfuse/
+
+  
