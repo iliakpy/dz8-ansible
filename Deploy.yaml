@@ -30,7 +30,8 @@
     shell: cp "/home/boxfuse/target/hello-1.0.war" "/var/lib/tomcat9/webapps/"
   
   - hosts: db
-  tasks:
+    become: yes
+    tasks:
     - name: Transfer file from web to db 
       synchronize:
         src: /home/boxfuse/target/hello-1.0.war
