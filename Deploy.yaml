@@ -19,6 +19,6 @@
 
   - name: boxfuse
     git:
-    repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
-    dest: /home/
-    clone: yes
+      repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
+      dest: /home/
+    
