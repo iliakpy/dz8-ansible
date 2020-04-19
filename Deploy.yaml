@@ -25,3 +25,9 @@
 
   - name: maven clean package
     command: mvn -f "/home/boxfuse/pom.xml" clean package
+
+  - name: copy boxfuse-sample-java-war-hello.war
+    shell: cp "/home/boxfuse/target/hello-1.0.war" "/var/lib/tomcat9/webapps/"
+  
+  - name: start apache-tomcat
+    command: nohup "/var/lib/tomcat9/webapps/bin/startup.sh"
