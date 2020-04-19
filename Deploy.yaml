@@ -32,7 +32,7 @@
 - hosts: db
   become: yes
   tasks:
-  
+
    - name: install tomcat 9
      apt:
       name: tomcat9
@@ -45,6 +45,6 @@
 
    - name: Transfer file from web to db 
      synchronize:
-      src: /home/boxfuse/target/hello-1.0.war
+      src: /home/boxfuse/target/
       dest: /var/lib/tomcat9/webapps/
       delegate_to: web
