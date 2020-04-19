@@ -1,0 +1,18 @@
+---
+- hosts: web
+  become: yes
+  tasks:
+  - name: install JDK 11
+    apt:
+      name: openjdk-11-jdk
+      state: present
+
+  - name: install tomcat 9
+    apt:
+      name: tomcat9
+      state: present
+
+  - name: install maven
+    apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+    with_items:
+    - maven
